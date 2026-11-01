@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//EN
+BEGIN:VEVENT
+UID:vara-sunitha-wedding-20261121
+DTSTAMP:20261101T000000Z
+DTSTART;TZID=Asia/Kolkata:20261121T103000
+SUMMARY:Wedding of Vara Prasad and Sunitha Rani
+LOCATION:At Groom's Home, Vempadu Village, Eluru District
+END:VEVENT
+END:VCALENDAR

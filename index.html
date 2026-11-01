@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4a171c">
+<title>Vara Prasad & Sunitha Rani | Wedding Invitation</title>
+<style>
+:root{--wine:#4a171c;--wine2:#6b252b;--gold:#d9b66f;--cream:#fff9ef;--ink:#382326}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+button,.btn{border:1px solid var(--gold);background:linear-gradient(135deg,#e8cc8c,#bd8d43);color:#351b18;padding:13px 23px;text-decoration:none;display:inline-block;font:600 11px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #6b252b;outline-offset:4px}
+.cover{min-height:100svh;display:grid;place-items:center;text-align:center;padding:28px 16px;color:#f2d59c;position:relative;overflow:hidden;background:
+ radial-gradient(ellipse at 50% 42%,#650d0b 0%,#4b0808 58%,#300505 100%);}
+.cover:before{content:"";position:absolute;inset:16px;border:1px solid #d9b66f;pointer-events:none;box-shadow:inset 0 0 0 5px #d9b66f20,inset 0 0 28px #12000088}
+.cover:after{content:"";position:absolute;inset:27px;border:1px solid #d9b66f66;pointer-events:none}
+
+.cover:before{content:"";position:absolute;inset:14px;border:1px solid #d9b66f99;pointer-events:none}
+.cover:after{content:"";position:absolute;inset:27px;border:1px solid #d9b66f44;pointer-events:none}
+.flower{position:absolute;color:#e8c27b99;font-size:clamp(70px,15vw,150px);line-height:1;filter:drop-shadow(0 0 8px #e4bc6a44);animation:flowerDrift 5s ease-in-out infinite}
+@keyframes flowerDrift{0%,100%{transform:translate3d(0,0,0) rotate(-4deg)}50%{transform:translate3d(22px,-18px,0) rotate(8deg)}}
+
+.flower.a{top:5%;left:3%}.flower.b{bottom:3%;right:3%}
+.cover-card{width:min(620px,100%);padding:clamp(32px,7vw,68px) 22px;position:relative;z-index:1}
+.kicker,.eyebrow{font:10px Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase}
+.kicker{color:#ead5a7}
+.cover-title{font-size:clamp(30px,6vw,48px);font-weight:400;line-height:1.25;margin:24px 0;color:#fff4df}
+.cover-note{font-size:16px;line-height:1.8;color:#f4e4c9;max-width:430px;margin:0 auto 24px}
+.cover .btn{margin-top:10px}
+#cover{z-index:5;isolation:isolate}
+#cover.opened{animation:coverFade 2.25s cubic-bezier(.22,.75,.22,1) forwards;pointer-events:none}
+#cover.opened .cover-card{animation:coverCardOut 1.85s cubic-bezier(.22,.75,.22,1) forwards}
+#invitation{position:relative;z-index:1;filter:blur(5px)}
+#invitation.visible{display:block}
+#invitation.enter{animation:invitationReveal 2.1s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes invitationReveal{0%{opacity:0;transform:translateY(34px) scale(.985);filter:blur(7px)}65%{opacity:1;filter:blur(1px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes coverCardOut{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-18px) scale(.985)}}
+@keyframes coverFade{0%{opacity:1;transform:scale(1);filter:blur(0)}35%{opacity:1;transform:scale(1.015);filter:blur(0)}75%{opacity:.72;transform:scale(1.045);filter:blur(2px)}100%{opacity:0;transform:scale(1.09);filter:blur(7px);visibility:hidden}}
+.transition-glow{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(ellipse at center,#f7d99b33 0%,#f7d99b10 42%,transparent 72%)}
+#cover.opened .transition-glow{animation:glowSweep 2.1s ease-in-out forwards}
+@keyframes glowSweep{0%{opacity:0;transform:scale(.85)}35%{opacity:1}100%{opacity:0;transform:scale(1.25)}}
+.petal{position:absolute;z-index:3;top:-12%;left:var(--x);font-size:var(--s);color:#f0cf8b;opacity:0;pointer-events:none;text-shadow:0 2px 7px #26000088;animation:petalBlow var(--dur) ease-in forwards;animation-delay:var(--delay)}
+@keyframes petalBlow{0%{opacity:0;transform:translate3d(0,-8vh,0) rotate(-25deg) scale(.7)}12%{opacity:.9}55%{opacity:.8;transform:translate3d(calc(var(--drift)*.45),48vh,0) rotate(210deg) scale(1)}100%{opacity:0;transform:translate3d(var(--drift),112vh,0) rotate(520deg) scale(.8)}}
+@keyframes coverFade{0%{opacity:1;transform:scale(1)}55%{opacity:.96;transform:scale(1.02)}100%{opacity:0;transform:scale(1.07);visibility:hidden}}
+#invitation{display:none;opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease}
+#invitation.visible{display:block}
+#invitation.enter{opacity:1;transform:translateY(0)}
+main{max-width:980px;margin:auto;padding:0 18px;position:relative;background:
+ radial-gradient(ellipse at 50% 0%,#6a0d0b 0%,#4b0707 48%,#360505 100%);
+ color:#f1d39a;border-left:1px solid #d6ad66;border-right:1px solid #d6ad66;box-shadow:0 0 0 7px #d6ad6612}
+main:before{content:"✿  ❧  ❀  ❧  ✿";display:block;text-align:center;color:#d8b16c;font-size:clamp(28px,6vw,54px);letter-spacing:.14em;padding:24px 0 4px;opacity:.95}
+
+section{padding:68px 22px;text-align:center;border:1px solid #d6ad6688;border-bottom:2px solid #d6ad66;margin:0 0 18px;position:relative}
+.eyebrow{color:#d8b16c}
+h1,h2,h3{font-weight:400}
+h2{font-size:clamp(30px,5vw,44px);color:#f1d39a;margin:12px 0 24px}
+.names{font-size:clamp(28px,5vw,38px);color:#f1d39a;line-height:1.55}
+.parents{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+.parents article,.event{padding:25px 18px;border:1px solid #d6ad6688;background:#4a0808;color:#f1d39a;box-shadow:inset 0 0 22px #1d000044}
+.parents h3,.event h3{color:#e3bd78;font-size:21px}
+.mantra{font-size:clamp(19px,3vw,25px);line-height:1.7;color:#f1d39a;margin:14px 0}
+.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.event .day{font-size:23px;color:#f1d39a;margin:15px 0}
+.event .date{font-size:clamp(23px,3vw,28px);color:#e2bc79;margin:12px 0}
+.event .time{font-size:16px;margin:10px 0 18px}
+.scratch-wrap{max-width:370px;margin:20px auto 4px;padding:13px;border:1px solid #d6ad6688;background:#3d0707}
+.scratch-wrap .small{font:11px Arial,sans-serif;color:#907d6c;margin:3px 0 8px}
+.scratch-area{height:76px;position:relative;overflow:hidden;background:#3d0707;touch-action:none}
+.scratch-area canvas{position:absolute;inset:0;z-index:2;display:block;opacity:1;background:#3d0707;touch-action:none}
+.scratch-area .secret{position:absolute;inset:0;display:grid;place-items:center;font-size:20px;color:#f1d39a;font-weight:bold;opacity:1;z-index:0}
+.scratch-area canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.scratch-help{font:10px Arial,sans-serif;color:#d9bd8b;margin-top:8px}
+.calendar-link{margin-top:16px}
+#countdown{display:block;width:100%;min-height:2.2em;font-size:clamp(24px,4.2vw,34px);font-family:Arial,sans-serif;font-weight:700;letter-spacing:.02em;color:#ffe2a8;line-height:1.6;margin:24px auto 4px;text-shadow:0 2px 8px #160000,0 0 2px #160000}
+.small{font:11px Arial,sans-serif;color:#e1c58f}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.photo{margin:0;background:#4a0808;padding:12px;border:1px solid #d6ad6688;display:flex;flex-direction:column;justify-content:flex-start}
+.photo img{width:100%;height:auto;max-height:560px;object-fit:contain;display:block;margin:0 auto;background:#2b0505}
+.photo figcaption{padding:12px;color:#f1d39a;font-size:19px}
+.links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+footer{text-align:center;padding:40px 15px;color:#d9bd8b;font-size:13px;background:#360505}
+.music-control{position:fixed;right:16px;bottom:16px;z-index:20;width:46px;height:46px;border-radius:50%;padding:0;font-size:19px;letter-spacing:0;box-shadow:0 3px 14px #0003;display:none}
+.music-control.show{display:block}
+.scroll-hint{font:10px Arial,sans-serif;letter-spacing:.12em;color:#d9bd8b;margin-top:18px}
+@media(max-width:620px){.parents,.event-grid,.photos{grid-template-columns:1fr}.photo img{height:280px}.cover:before{inset:10px}.cover:after{inset:20px}section{padding:54px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Reliable opening/reveal state */
+#cover { position:relative; z-index:5; }
+#cover.opened { animation: coverFade 2.35s cubic-bezier(.22,.72,.2,1) forwards; pointer-events:none; }
+#cover.opened .cover-card { animation: coverCardOut 1.9s ease-in-out forwards; }
+#invitation { display:none; opacity:0; transform:translateY(24px); filter:blur(5px); position:relative; z-index:1; }
+#invitation.visible { display:block; }
+#invitation.enter { animation: invitationReveal 2.1s cubic-bezier(.2,.72,.2,1) forwards; }
+@keyframes invitationReveal {
+  0% { opacity:0; transform:translateY(24px); filter:blur(5px); }
+  65% { opacity:1; filter:blur(1px); }
+  100% { opacity:1; transform:translateY(0); filter:blur(0); }
+}
+@keyframes coverCardOut {
+  0% { opacity:1; transform:translateY(0) scale(1); }
+  100% { opacity:0; transform:translateY(-14px) scale(.985); }
+}
+@keyframes coverFade {
+  0% { opacity:1; transform:scale(1); filter:blur(0); }
+  35% { opacity:1; transform:scale(1.015); filter:blur(0); }
+  75% { opacity:.65; transform:scale(1.045); filter:blur(2px); }
+  100% { opacity:0; transform:scale(1.075); filter:blur(6px); visibility:hidden; }
+}
+
+
+.photos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start; }
+.photo { min-width:0; }
+.photo img { display:block; width:100%; height:auto; max-height:none; object-fit:contain; margin:0 auto; background:#2b0505; }
+@media(max-width:620px) {
+ .photos { grid-template-columns:1fr; }
+ .photo img { width:100%; height:auto; max-height:none; }
+}
+
+
+.date-reveal{margin:20px auto 8px;padding:17px 10px 19px;max-width:390px;min-height:116px;border:1px solid #d6ad6688;background:linear-gradient(145deg,#3d0707,#510b0b);box-shadow:inset 0 0 22px #1d000044}
+.date-prompt{font:11px Arial,sans-serif;letter-spacing:.08em;color:#d9bd8b;margin-bottom:12px}
+.date-value,.date-time{opacity:0;transform:translateY(14px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.date-value{font-size:clamp(23px,3vw,29px);color:#f4d69b;margin:8px 0;text-shadow:0 2px 8px #16000088}
+.date-time{font-size:15px;color:#f1d39a;margin-top:8px;transition-delay:.12s}
+.date-reveal.revealed .date-value,.date-reveal.revealed .date-time{opacity:1;transform:translateY(0)}
+.date-reveal.revealed{border-color:#e5c17d;box-shadow:inset 0 0 24px #d9ad5b20,0 0 14px #d9ad5b20}
+
+</style>
+</head>
+<body>
+<header class="cover" id="cover">
+ <span class="flower a" aria-hidden="true">✿</span><span class="flower b" aria-hidden="true">❀</span><span class="transition-glow" aria-hidden="true"></span>
+ <div class="cover-card">
+  <div class="kicker">The Wedding Celebration</div>
+  <div class="cover-title">A beautiful beginning<br>awaits…</div>
+  <p class="cover-note">With the blessings of our families, we invite you to open our wedding invitation.</p>
+  <button class="btn" id="openInvitation" type="button">Open Invitation</button>
+ </div>
+</header>
+
+<main id="invitation">
+<section>
+ <div class="eyebrow">With the blessings of our families</div>
+ <h2 class="names">Vara Prasad<br><span style="color:#b58b4b">&</span><br>Sunitha Rani</h2>
+ <p>Joyfully invite you to celebrate the beginning of our forever.</p>
+</section>
+<section>
+ <div class="eyebrow">Our families</div><h2>Family Details</h2>
+ <div class="parents">
+  <article><h3>Groom's Parents</h3><p>Sri. Mareedu Yeliyya<br>&<br>Smt. Satyavathi</p></article>
+  <article><h3>Bride's Parents</h3><p>Sri. Bezawada Raraju<br>&<br>Smt. Padmasri</p></article>
+ </div>
+</section>
+<section>
+ <div class="eyebrow">A promise blessed by tradition</div><h2>Our Story in Three Lines</h2>
+ <div class="mantra"><b>TWO FAMILIES</b><br>United in grace and tradition</div>
+ <div class="mantra"><b>TWO JOURNEYS</b><br>Blessed by divine destiny</div>
+ <div class="mantra"><b>ONE SACRED UNION</b><br>A promise for lifetime</div>
+</section>
+<section>
+ <div class="eyebrow">Save the dates</div><h2>Wedding Celebrations</h2>
+ <div class="event-grid">
+  <article class="event">
+   <div class="eyebrow">Wedding</div><div class="day">Saturday</div>
+   <div class="date-reveal" aria-live="polite">
+    <div class="date-prompt">A special day for our union</div>
+    <div class="date-value" id="weddingDate">21 November 2026</div>
+    <div class="date-time" id="weddingTime">Time: 10:30 AM</div>
+   </div>
+   <a class="btn calendar-link" href="wedding.ics" download>Add Wedding to Calendar</a>
+  </article>
+  <article class="event">
+   <div class="eyebrow">Reception</div><div class="day">Sunday</div>
+   <div class="date-reveal" aria-live="polite">
+    <div class="date-prompt">Join us for the reception</div>
+    <div class="date-value" id="receptionDate">22 November 2026</div>
+    <div class="date-time" id="receptionTime">Time: 12:00 PM</div>
+   </div>
+   <a class="btn calendar-link" href="reception.ics" download>Add Reception to Calendar</a>
+  </article>
+ </div>
+ <div id="countdown" aria-live="polite"></div>
+ <div class="small">Countdown to the wedding</div>
+</section>
+<section>
+ <div class="eyebrow">Join us</div><h2>Venues & Directions</h2>
+ <div class="event-grid">
+  <article class="event"><h3>Wedding</h3><p><b>At Groom's Home</b><br>Vempadu Village, Eluru District</p>
+   <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps?q=16.6979420,81.0063192">Open Google Maps</a>
+  </article>
+  <article class="event"><h3>Reception</h3><p><b>At Bride's Home</b><br>Epuru, Eluru District</p>
+   <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Epuru%2C+Eluru+District%2C+Andhra+Pradesh">Find Reception Location</a>
+  </article>
+ </div>
+</section>
+<section>
+ <div class="eyebrow">A glimpse of the couple</div><h2>Photo Glimpse</h2>
+ <div class="photos">
+  <figure class="photo"><img src="groom.jpg" alt="Groom Vara Prasad"><figcaption>Groom · Vara Prasad</figcaption></figure>
+  <figure class="photo"><img src="bride.jpg" alt="Bride Sunitha Rani"><figcaption>Bride · Sunitha Rani</figcaption></figure>
+  <figure class="photo"><img src="couple.jpg" alt="Vara Prasad and Sunitha Rani"><figcaption>Together · Vara Prasad & Sunitha Rani</figcaption></figure>
+ </div>
+</section>
+<section>
+ <h2>Your Presence Is Our Blessing</h2><p>We look forward to celebrating these special moments with you.</p>
+ <div class="links"><a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Back to Top</a><a class="btn" href="https://www.google.com/maps?q=16.6979420,81.0063192" target="_blank" rel="noopener">Wedding Map</a></div>
+</section>
+</main>
+<button class="music-control" id="musicToggle" type="button" aria-label="Turn music on or off" title="Music on/off">♫</button>
+<audio id="weddingMusic" src="background-music.mp3" loop preload="auto"></audio>
+<footer>Made with love for Vara Prasad & Sunitha Rani · November 2026</footer>
+
+<script>
+const cover=document.getElementById('cover');
+const invitation=document.getElementById('invitation');
+const music=document.getElementById('weddingMusic');
+const musicToggle=document.getElementById('musicToggle');
+let autoScroll=false, scrollFrame=null, resumeTimer=null, lastScroll=0;
+
+function startAutoScroll(){
+ if(!autoScroll || scrollFrame) return;
+ const step=()=>{
+  if(!autoScroll){scrollFrame=null;return;}
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  if(window.scrollY>=max-2){autoScroll=false;scrollFrame=null;return;}
+  window.scrollBy(0,0.62);
+  scrollFrame=requestAnimationFrame(step);
+ };
+ scrollFrame=requestAnimationFrame(step);
+}
+function pauseAutoScroll(){
+ if(!autoScroll)return;
+ autoScroll=false;
+ if(scrollFrame)cancelAnimationFrame(scrollFrame);
+ scrollFrame=null;
+ clearTimeout(resumeTimer);
+ resumeTimer=setTimeout(()=>{autoScroll=true;startAutoScroll();},3500);
+}
+['touchstart','pointerdown','wheel','keydown'].forEach(evt=>{
+ window.addEventListener(evt,()=>{if(invitation.classList.contains('enter'))pauseAutoScroll();},{passive:true});
+});
+document.getElementById('openInvitation').addEventListener('click', async () => {
+ if (invitation.classList.contains('visible')) return;
+
+ // Reveal the invitation immediately, then play the floral transition over it.
+ invitation.classList.add('visible');
+ musicToggle.classList.add('show');
+
+ // Create a gentle shower of petals and golden glints.
+ for (let i = 0; i < 48; i++) {
+  const petal = document.createElement('span');
+  petal.className = 'petal';
+  petal.textContent = ['✿','❀','✽','❁','✾','❃','✧','✦'][i % 8];
+  petal.style.setProperty('--x', (2 + (i * 37) % 96) + '%');
+  petal.style.setProperty('--s', (13 + (i % 6) * 6) + 'px');
+  petal.style.setProperty('--dur', (2.7 + (i % 7) * .24) + 's');
+  petal.style.setProperty('--delay', (i * .035) + 's');
+  petal.style.setProperty('--drift', (-85 + (i * 43) % 170) + 'px');
+  cover.appendChild(petal);
+ }
+
+ // Trigger the opening animations on the next paint.
+ requestAnimationFrame(() => {
+  cover.classList.add('opened');
+  invitation.classList.add('enter');
+ });
+ window.scrollTo(0, 0);
+
+ // Browser audio policy: attempt playback after this user tap.
+ try {
+  await music.play();
+  musicToggle.textContent = '♫';
+  musicToggle.title = 'Turn music off';
+ } catch (e) {
+  musicToggle.textContent = '♪';
+  musicToggle.title = 'Tap to play music';
+ }
+
+ // Start slow automatic scrolling only after the transition has finished.
+ setTimeout(() => { cover.style.display = 'none'; }, 2500);
+ setTimeout(() => {
+  autoScroll = true;
+  startAutoScroll();
+ }, 6300);
+});
+musicToggle.addEventListener('click',async()=>{
+ if(music.paused){try{await music.play();musicToggle.textContent='♫';musicToggle.title='Turn music off';}catch(e){musicToggle.title='Music file not found';}}
+ else{music.pause();musicToggle.textContent='♪';musicToggle.title='Turn music on';}
+});
+
+function setupScratch(canvas){
+ const ctx=canvas.getContext('2d');let drawing=false, revealed=false;
+ function paintCover(){
+  const r=canvas.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+  canvas.width=Math.max(1,Math.round(r.width*dpr));canvas.height=Math.max(1,Math.round(r.height*dpr));
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const g=ctx.createLinearGradient(0,0,r.width,r.height);g.addColorStop(0,'#5a1714');g.addColorStop(.5,'#3b0b0b');g.addColorStop(1,'#6a2018');
+  ctx.globalCompositeOperation='source-over';ctx.fillStyle=g;ctx.fillRect(0,0,r.width,r.height);
+  ctx.fillStyle='#f0d39a';ctx.font='11px Arial';ctx.textAlign='center';ctx.fillText('✦  SCRATCH TO REVEAL  ✦',r.width/2,r.height/2+4);
+ }
+ function point(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+ function scratch(e){const p=point(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(p.x,p.y,17,0,Math.PI*2);ctx.fill();}
+ function checkReveal(){
+  const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;let clear=0;
+  for(let i=3;i<data.length;i+=4)if(data[i]<40)clear++;
+  if(clear/(data.length/4)>.43&&!revealed){revealed=true;canvas.style.transition='opacity .5s';canvas.style.opacity='0';setTimeout(()=>canvas.remove(),550);}
+ }
+ canvas.addEventListener('pointerdown',e=>{if(revealed)return;drawing=true;canvas.setPointerCapture(e.pointerId);scratch(e);});
+ canvas.addEventListener('pointermove',e=>{if(!drawing||revealed)return;scratch(e);});
+ canvas.addEventListener('pointerup',()=>{if(!drawing)return;drawing=false;checkReveal();});
+ canvas.addEventListener('pointercancel',()=>{drawing=false;});
+ paintCover();
+}
+
+
+
+let datesHaveRevealed = false;
+let revealInProgress = false;
+
+function revealEventDates() {
+ if (datesHaveRevealed || revealInProgress) return;
+ datesHaveRevealed = true;
+ revealInProgress = true;
+
+ // Hold the automatic movement while the two dates are introduced.
+ const shouldResumeScroll = autoScroll;
+ if (scrollFrame) cancelAnimationFrame(scrollFrame);
+ scrollFrame = null;
+ autoScroll = false;
+ clearTimeout(resumeTimer);
+
+ const weddingPanel = document.getElementById('weddingDate').closest('.date-reveal');
+ const receptionPanel = document.getElementById('receptionDate').closest('.date-reveal');
+
+ // Reveal the wedding date first.
+ weddingPanel.classList.add('revealed');
+
+ // Allow its reveal animation to finish, then leave a 0.5-second pause.
+ setTimeout(() => {
+  receptionPanel.classList.add('revealed');
+
+  // Let the reception date animate, then pause for 0.5 second before scrolling.
+  setTimeout(() => {
+   revealInProgress = false;
+   autoScroll = true;
+   startAutoScroll();
+  }, 1200);
+ }, 1200);
+}
+
+// Observe the wedding event card itself, not the entire celebrations section.
+// This prevents the dates appearing while the visitor is still approaching it.
+const weddingEventCard = document.getElementById('weddingDate').closest('.event');
+if ('IntersectionObserver' in window) {
+ const datesObserver = new IntersectionObserver(entries => {
+  if (entries.some(entry => entry.isIntersecting)) {
+   revealEventDates();
+   datesObserver.disconnect();
+  }
+ }, { threshold: 0.08, rootMargin: '0px 0px -35% 0px' });
+ datesObserver.observe(weddingEventCard);
+} else {
+ const checkWeddingCardVisible = () => {
+  if (datesHaveRevealed) return;
+  const r = weddingEventCard.getBoundingClientRect();
+  if (r.top < window.innerHeight * .65 && r.bottom > 0) {
+   revealEventDates();
+   window.removeEventListener('scroll', checkWeddingCardVisible);
+  }
+ };
+ window.addEventListener('scroll', checkWeddingCardVisible, { passive: true });
+}
+
+function tick(){
+ const target=new Date('2026-11-21T10:30:00+05:30').getTime(),d=target-Date.now(),el=document.getElementById('countdown');
+ if(d<=0){el.textContent='The wedding day is here!';return;}
+ const days=Math.floor(d/86400000),hrs=Math.floor(d%86400000/3600000),mins=Math.floor(d%3600000/60000),secs=Math.floor(d%60000/1000);
+ el.textContent=`${days} days · ${hrs} hours · ${mins} minutes · ${secs} seconds`;
+}
+tick();setInterval(tick,1000);
+</script>
+</body></html>

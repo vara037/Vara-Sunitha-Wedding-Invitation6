@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding Invitation//EN
+BEGIN:VEVENT
+UID:vara-sunitha-reception-20261122
+DTSTAMP:20261101T000000Z
+DTSTART;TZID=Asia/Kolkata:20261122T120000
+SUMMARY:Reception of Vara Prasad and Sunitha Rani
+LOCATION:At Bride's Home, Epuru, Eluru District
+END:VEVENT
+END:VCALENDAR
